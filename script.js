@@ -6,6 +6,7 @@ const authorText =document.getElementById('author');
 const twitterBtn =document.getElementById('twitter');
 const newQuoteBtn =document.getElementById('new-quote');
 const loader = document.getElementById('loaderID');
+const scary = document.getElementById('scary');
 
 let apiQuotes = [];
 function loading(){
@@ -15,6 +16,7 @@ function loading(){
 function complete(){
     quoteContainer.classList.remove('invisible');
     loader.classList.add('invisible');
+    setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},2000);
  }
 // Show new Quote
 function newQuote(){
@@ -43,6 +45,7 @@ async function getQuotes() {
         console.log ('quotes', apiQuotes[Math.floor(Math.random()*apiQuotes.length)])
         newQuote( )
         complete();
+        
 
     } catch (error){
         // handle error here (alert or pass the error shere it could be useful)
@@ -62,3 +65,4 @@ newQuoteBtn.addEventListener('click', newQuote)
 twitterBtn.addEventListener('click', tweetQuote)
 //  On load
 getQuotes();
+setTimeout(()=>(scary.classList.remove('invisible')),2000)
