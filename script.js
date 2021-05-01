@@ -16,7 +16,7 @@ function loading(){
 function complete(){
     quoteContainer.classList.remove('invisible');
     loader.classList.add('invisible');
-    setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},2000);
+    setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},10000);
  }
 // Show new Quote
 function newQuote(){
@@ -65,4 +65,3 @@ newQuoteBtn.addEventListener('click', newQuote)
 twitterBtn.addEventListener('click', tweetQuote)
 //  On load
 getQuotes();
-setTimeout(()=>(scary.classList.remove('invisible')),2000)
