@@ -14,9 +14,10 @@ function loading(){
     loader.classList.remove('invisible');
  }
 function complete(){
+    // quoteContainer.style.visibility = 'hidden'
     quoteContainer.classList.remove('invisible');
     loader.classList.add('invisible');
-    setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},10000);
+    // setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},10000);
  }
 // Show new Quote
 function newQuote(){
