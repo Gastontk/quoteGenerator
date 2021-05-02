@@ -19,7 +19,7 @@ function complete(){
     loader.classList.add('invisible');
     // setTimeout(()=>{ quoteContainer.classList.add('invisible');scary.classList.remove('invisible');},10000);
  }
-// Show new Quote
+// Show new Quote®®
 function newQuote(){
 
     const quote =  apiQuotes[Math.floor(Math.random()*apiQuotes.length)];

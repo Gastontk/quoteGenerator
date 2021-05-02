@@ -51,22 +51,32 @@ body {
     box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
   }
 
-  .quote-text{
-      font-size: 5.75rem;
+  /* .quote-text{
+      font-size: 5rem;
+
+  } */
+  #quote{
+    font-size: 3rem;
+  }
+  .fa-quote-left{
+    font-size: 2.5rem;
 
   }
+  .fa-quote-right{
+    font-size: 2.5rem;
 
+  }
   .long-quote-left{
-      font-size: 2rem;
+      font-size: 2.5rem;
   }
 
   .fa-quote{
-      font-size: 4rem;
+      font-size: 2rem;
   }
 
   .quote-author{
       margin-top: 15px;
-      font-size: 2rem;
+      font-size: 5rem;
       font-weight: 400;
       font-style:italic
   }
@@ -109,7 +119,7 @@ body {
 
   /*  Dynaically added class to change font size on long quotes */
   .long-quote {
-      font-size: .8rem;
+      font-size: 1.5rem;
   }
 
 /*  Spinner for loading */
@@ -216,6 +226,7 @@ body {
           margin: auto 10px;
       }
       .quote-text{
-          font-size: 2.5rem;
+          font-size: 5rem;
       }
+      
 }
