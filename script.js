@@ -73,7 +73,7 @@ async function checkIP(){
             let now = Date.now();
             let timeDate = new Date(now);
             res.timeDate=timeDate;
-            res.app ='joke-teller'
+            res.app ='quote-generator'
             console.log('checkpoint');
            console.log(res);
                    sendIpToFirebase(res)
