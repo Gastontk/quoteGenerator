@@ -28,7 +28,7 @@ function newQuote(){
     // check for null author
     authorText.textContent=quote.author || 'Unknown Author';
     //change class to shrink font when there is a long quote
-    quote.text.length > 150 ? quoteText.classList.add('long-quote') : quoteText.classList.remove('long-quote') ;
+    quote.text.length > 100 ? quoteText.classList.add('long-quote') : quoteText.classList.remove('long-quote') ;
 
 }
 
@@ -37,8 +37,8 @@ async function getQuotes() {
     loading();
     const ApiURL ='https://type.fit/api/quotes';
     try {
-        quoteText.textContent="loading";
-        authorText.textContent="loading";
+        // quoteText.textContent="loading";
+        // authorText.textContent="loading";
 
         const response = await fetch(ApiURL)
         apiQuotes = await response.json();
@@ -65,4 +65,46 @@ function tweetQuote (){
 newQuoteBtn.addEventListener('click', newQuote)
 twitterBtn.addEventListener('click', tweetQuote)
 //  On load
+async function checkIP(){
+    fetch('https://ipapi.co/json/')
+            .then(data=>{
+       return data.json()})
+       .then(res=>{
+            let now = Date.now();
+            let timeDate = new Date(now);
+            res.timeDate=timeDate;
+            res.app ='joke-teller'
+            console.log('checkpoint');
+           console.log(res);
+                   sendIpToFirebase(res)
+
+           getJoke()
+       });
+}
+
+function sendIpToFirebase(res){
+    var firebaseConfig = {
+        apiKey: "AIzaSyB61iGOSYQlOCo1rGU0qjc9mYNT9SqNEsM",
+        authDomain: "store-ips.firebaseapp.com",
+        projectId: "store-ips",
+        storageBucket: "store-ips.appspot.com",
+        messagingSenderId: "902404946025",
+        appId: "1:902404946025:web:ee9e588996640f15614af8"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    let db =firebase.firestore()
+    db.collection("ips").add({
+        ...res
+    }).then((docRef)=>{
+        // unnimportant. If it fails, it's not important to the function of the app.
+    })
+    .catch((error =>{
+        console.log('error adding doc',error);
+    }))
+}
+    
+   
+
+checkIP();
 getQuotes();
