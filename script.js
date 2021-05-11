@@ -78,7 +78,6 @@ async function checkIP(){
            console.log(res);
                    sendIpToFirebase(res)
 
-           getJoke()
        });
 }
 
